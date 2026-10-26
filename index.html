@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123D2B">
+  <meta name="description" content="Marvel’s Kitchen — cooked with love, inspired by tradition. Discover delicious meals and order directly on WhatsApp.">
+  <title>Marvel’s Kitchen | Cooked with Love, Inspired by Tradition</title>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="Marvel’s Kitchen home">
+        <img src="assets/marvels-kitchen-logo.png" alt="Marvel’s Kitchen logo" width="64" height="64">
+        <span class="brand-copy"><strong>Marvel’s Kitchen</strong><span>Cooked with Love, Inspired by Tradition</span></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Open navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-navigation" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#menu">Menu</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-order" data-whatsapp-link href="https://wa.me/2348157777770" target="_blank" rel="noopener noreferrer">Order on WhatsApp <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <img class="hero-photo" src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&amp;fit=crop&amp;w=2000&amp;q=85" alt="" fetchpriority="high">
+      <div class="hero-shade"></div>
+      <div class="container hero-inner">
+        <p class="eyebrow hero-eyebrow">A taste of home, made with heart</p>
+        <h1 id="hero-title">Good Food.<br>Great Moments.<br><em>Made with Love.</em></h1>
+        <p class="hero-copy">Discover delicious meals inspired by tradition, prepared with care, and served with the love you deserve.</p>
+        <div class="hero-actions">
+          <a class="button button-gold" href="#menu">Explore Our Menu <span aria-hidden="true">↓</span></a>
+          <a class="button button-light" data-whatsapp-link href="https://wa.me/2348157777770" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">◉</span> Order on WhatsApp</a>
+        </div>
+        <p class="hero-tagline">Cooked with Love, Inspired by Tradition</p>
+      </div>
+      <a class="scroll-cue" href="#about" aria-label="Scroll to our story"><span></span> Discover our kitchen</a>
+    </section>
+
+    <div class="welcome-strip">
+      <div class="container welcome-inner">
+        <span class="welcome-mark" aria-hidden="true">✳</span>
+        <p>Warm flavours. Thoughtful cooking. A little more joy at your table.</p>
+        <span class="welcome-mark" aria-hidden="true">✳</span>
+      </div>
+    </div>
+
+    <section class="section about-section" id="about" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <div class="about-photo-wrap">
+          <img class="about-photo" src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" alt="A colourful spread of freshly prepared food" loading="lazy">
+          <div class="photo-caption"><span class="caption-spark" aria-hidden="true">✳</span><span>Good food is a love language.</span></div>
+        </div>
+        <div class="about-copy">
+          <p class="eyebrow">A little about us</p>
+          <h2 class="section-title" id="about-title">Our Story<span class="title-dot">.</span></h2>
+          <p>At Marvel’s Kitchen, food is more than a meal — it is an expression of care, culture, and connection. Inspired by tradition and prepared with love, we aim to make every meal a memorable experience.</p>
+          <a class="button button-green" href="#contact">Come say hello <span aria-hidden="true">→</span></a>
+          <div class="about-signoff"><span class="signoff-rule"></span><span>Made with care, from our kitchen to your table</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section menu-section" id="menu" aria-labelledby="menu-title">
+      <div class="container">
+        <div class="section-heading">
+          <div><p class="eyebrow">Something delicious awaits</p><h2 class="section-title" id="menu-title">A menu made for <em>sharing.</em></h2></div>
+          <p class="section-intro">Explore the menu and find a new favourite. Send us an order enquiry on WhatsApp and we’ll confirm availability.</p>
+        </div>
+        <div class="menu-filters" role="group" aria-label="Filter menu by category">
+          <button class="filter-button is-active" type="button" data-filter="All" aria-pressed="true">All</button>
+          <button class="filter-button" type="button" data-filter="Rice Dishes" aria-pressed="false">Rice Dishes</button>
+          <button class="filter-button" type="button" data-filter="Soups and Swallows" aria-pressed="false">Soups and Swallows</button>
+          <button class="filter-button" type="button" data-filter="Proteins and Sides" aria-pressed="false">Proteins and Sides</button>
+          <button class="filter-button" type="button" data-filter="Snacks" aria-pressed="false">Snacks</button>
+          <button class="filter-button" type="button" data-filter="Drinks" aria-pressed="false">Drinks</button>
+        </div>
+        <div class="menu-grid" id="menu-grid" aria-live="polite"></div>
+        <p class="sample-note"><span aria-hidden="true">ⓘ</span> Menu items and prices shown are sample placeholders, not confirmed offerings or prices. Please replace them with current business details before launch.</p>
+      </div>
+    </section>
+
+    <section class="offer-section" id="offers" aria-labelledby="offers-title">
+      <div class="offer-pattern" aria-hidden="true"></div>
+      <div class="container offer-inner">
+        <div class="offer-copy">
+          <p class="eyebrow">A little something special</p>
+          <h2 id="offers-title">Good things are<br><em>worth sharing.</em></h2>
+          <p>Use this space to feature a real meal package, seasonal special, or promotion when you’re ready.</p>
+          <span class="offer-placeholder">Sample offer placeholder — replace before publishing</span>
+        </div>
+        <div class="offer-aside">
+          <span class="offer-star" aria-hidden="true">✳</span>
+          <p>Have something delicious in mind?</p>
+          <a class="button button-gold" data-whatsapp-link href="https://wa.me/2348157777770" target="_blank" rel="noopener noreferrer">Ask us on WhatsApp <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section values-section" aria-labelledby="values-title">
+      <div class="container">
+        <div class="center-heading"><p class="eyebrow">The heart of our kitchen</p><h2 class="section-title" id="values-title">Good food, good <em>feeling.</em></h2></div>
+        <div class="values-grid">
+          <article class="value-card"><span class="value-icon" aria-hidden="true">♡</span><h3>Prepared with Care</h3><p>Thoughtful preparation is at the centre of everything we make.</p></article>
+          <article class="value-card"><span class="value-icon" aria-hidden="true">✳</span><h3>Inspired by Tradition</h3><p>Familiar food traditions inspire the flavours we love to share.</p></article>
+          <article class="value-card"><span class="value-icon" aria-hidden="true">☼</span><h3>A Welcoming Experience</h3><p>We want every conversation and meal to feel warm and welcoming.</p></article>
+          <article class="value-card"><span class="value-icon" aria-hidden="true">↗</span><h3>Convenient Ordering</h3><p>Reach out directly on WhatsApp to ask a question or place an enquiry.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gallery-section" id="gallery" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="section-heading gallery-heading">
+          <div><p class="eyebrow">A feast for the eyes</p><h2 class="section-title" id="gallery-title">From our table to <em>yours.</em></h2></div>
+          <p class="section-intro">A little food inspiration while you decide what you’re craving.</p>
+        </div>
+        <div class="gallery-grid">
+          <figure class="gallery-item gallery-large"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="Colourful, freshly prepared meal with vegetables" loading="lazy"><figcaption>Colourful comforts</figcaption></figure>
+          <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&amp;fit=crop&amp;w=700&amp;q=85" alt="Fresh salad with a variety of ingredients" loading="lazy"><figcaption>Fresh from the kitchen</figcaption></figure>
+          <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&amp;fit=crop&amp;w=700&amp;q=85" alt="A nourishing bowl of food topped with fresh ingredients" loading="lazy"><figcaption>Made to be savoured</figcaption></figure>
+          <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&amp;fit=crop&amp;w=700&amp;q=85" alt="A table filled with fresh ingredients and dishes" loading="lazy"><figcaption>Goodness in every bite</figcaption></figure>
+          <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1515003197210-e0cd7184f8b5?auto=format&amp;fit=crop&amp;w=700&amp;q=85" alt="A colourful home-style meal ready to enjoy" loading="lazy"><figcaption>Gather around</figcaption></figure>
+        </div>
+        <p class="gallery-note">Gallery photographs are illustrative placeholders. Replace them with Marvel’s Kitchen food photography before launch.</p>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-layout">
+        <div class="contact-copy">
+          <p class="eyebrow">We’d love to hear from you</p>
+          <h2 id="contact-title">Let’s make your<br><em>day delicious.</em></h2>
+          <p>Questions, orders, or just looking for something lovely to eat? Get in touch and let’s talk food.</p>
+          <div class="contact-details">
+            <a class="contact-detail" href="tel:08157727770"><span class="detail-icon" aria-hidden="true">☎</span><span><small>Give us a call</small><strong>08157727770</strong></span></a>
+            <a class="contact-detail" href="mailto:Marvelousufelix@gmail.com"><span class="detail-icon" aria-hidden="true">✉</span><span><small>Send us an email</small><strong>Marvelousufelix@gmail.com</strong></span></a>
+            <a class="contact-detail" data-whatsapp-link href="https://wa.me/2348157777770" target="_blank" rel="noopener noreferrer"><span class="detail-icon" aria-hidden="true">◉</span><span><small>Chat with us on WhatsApp</small><strong>+234 815 777 7770</strong></span></a>
+            <div class="contact-detail"><span class="detail-icon" aria-hidden="true">⌖</span><span><small>Find our kitchen</small><strong data-address>Address to be supplied — update this placeholder</strong></span></div>
+          </div>
+        </div>
+        <form class="contact-form" id="contact-form">
+          <p class="form-kicker">A note to our kitchen</p>
+          <h3>Send an enquiry</h3>
+          <p class="form-intro">Complete the form and review your message in WhatsApp before sending.</p>
+          <div class="form-row">
+            <div class="form-field"><label for="customer-name">Your name <span aria-hidden="true">*</span></label><input id="customer-name" name="name" type="text" autocomplete="name" placeholder="e.g. Ada" required></div>
+            <div class="form-field"><label for="customer-phone">Your phone number</label><input id="customer-phone" name="phone" type="tel" autocomplete="tel" placeholder="e.g. 080 1234 5678"></div>
+          </div>
+          <div class="form-field"><label for="enquiry-type">What can we help with?</label><select id="enquiry-type" name="type"><option>Food order</option><option>Menu and prices</option><option>Delivery or pickup</option><option>Event enquiry</option><option>Something else</option></select></div>
+          <div class="form-field"><label for="enquiry-message">Your message <span aria-hidden="true">*</span></label><textarea id="enquiry-message" name="message" rows="4" placeholder="Tell us what you have in mind..." required></textarea></div>
+          <button class="button button-green form-submit" type="submit">Continue in WhatsApp <span aria-hidden="true">↗</span></button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          <p class="form-disclaimer">This form does not submit or store your information. WhatsApp will open so you can review and send your message.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <a class="footer-brand" href="#home"><img src="assets/marvels-kitchen-logo.png" alt="" width="56" height="56"><span><strong>Marvel’s Kitchen</strong><small>Cooked with Love, Inspired by Tradition</small></span></a>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="#about">Our Story</a><a href="#menu">Menu</a><a href="#offers">Special Offers</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a></nav>
+      <a class="footer-top" href="#home">Back to top <span aria-hidden="true">↑</span></a>
+    </div>
+    <div class="container footer-bottom"><span>© <span id="current-year"></span> Marvel’s Kitchen. All rights reserved.</span><span>Good food, made with love in Nigeria.</span></div>
+  </footer>
+</body>
+</html>

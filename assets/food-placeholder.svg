@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" role="img" aria-labelledby="title desc">
+  <title id="title">Food photograph placeholder</title>
+  <desc id="desc">A warm, simple illustration used when a food photograph cannot load.</desc>
+  <rect width="900" height="600" fill="#fff8eb"/>
+  <circle cx="450" cy="300" r="178" fill="#fff" stroke="#c9a227" stroke-width="12"/>
+  <circle cx="450" cy="300" r="143" fill="#e9e1d2"/>
+  <path d="M365 305c0-48 39-87 87-87s87 39 87 87-39 87-87 87-87-39-87-87Z" fill="#123d2b"/>
+  <circle cx="422" cy="287" r="15" fill="#c9a227"/>
+  <circle cx="474" cy="268" r="12" fill="#c9a227"/>
+  <circle cx="489" cy="326" r="17" fill="#c9a227"/>
+  <path d="M190 119h520M190 481h520" stroke="#123d2b" stroke-opacity=".12" stroke-width="3"/>
+  <text x="450" y="543" fill="#123d2b" font-family="Georgia,serif" font-size="25" text-anchor="middle">Marvel’s Kitchen</text>
+</svg>
