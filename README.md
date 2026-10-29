@@ -18,9 +18,9 @@ The original supplied `marvels_kitchen_website.html` has been left untouched. Th
 - **Offers:** Replace the labelled sample promotion in the offers section of `index.html` with a genuine current offer, or remove that section.
 - **Photography:** Replace the illustrative Unsplash image URLs in `index.html` and `script.js` with photographs you have permission to use. Local images can be placed in `assets/` and referenced with paths such as `assets/my-dish.jpg`.
 - **Logo:** Replace `assets/marvels-kitchen-logo.png` with the final business logo if needed, keeping the same filename or updating both image references in `index.html`.
-- **Reviews:** No testimonials are displayed because no genuine customer reviews were supplied. Add a testimonials section only when you have authentic reviews and permission to publish them.
+- **Reviews:** Visitors can submit feedback using the review form; it opens an email to the business for the visitor to review and send. Add published testimonials only when you have authentic customer reviews and permission to share them.
 
-Menu order buttons and the enquiry form open WhatsApp with a prefilled message. Customers review and send the message themselves; this website does not accept payments, submit form data to a server, or store personal information.
+Customers can add menu items to the on-site order basket, adjust quantities, and enter pickup or delivery details. Checkout prepares the complete order summary in WhatsApp for the customer to review and send to the business. The website does not take payment, store or automatically submit orders, or store personal information. Review and general-enquiry forms open the visitor's email or WhatsApp app respectively; the visitor must send each message.
 
 ## Publish
 

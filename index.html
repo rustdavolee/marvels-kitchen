@@ -15,7 +15,7 @@
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="brand" href="#home" aria-label="Marvel’s Kitchen home">
-        <img src="assets/marvels-kitchen-logo.png" alt="Marvel’s Kitchen logo" width="64" height="64">
+        <img src="assets/marvels-kitchen-logo.png" alt="Marvel’s Kitchen logo" width="72" height="72">
         <span class="brand-copy"><strong>Marvel’s Kitchen</strong><span>Cooked with Love, Inspired by Tradition</span></span>
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Open navigation menu">
@@ -27,7 +27,7 @@
         <a href="#menu">Menu</a>
         <a href="#gallery">Gallery</a>
         <a href="#contact">Contact</a>
-        <a class="nav-order" data-whatsapp-link href="https://wa.me/2348157777770" target="_blank" rel="noopener noreferrer">Order on WhatsApp <span aria-hidden="true">↗</span></a>
+        <a class="nav-order" href="#menu">Order on Site <span aria-hidden="true">↗</span></a>
       </nav>
     </div>
   </header>
@@ -42,7 +42,7 @@
         <p class="hero-copy">Discover delicious meals inspired by tradition, prepared with care, and served with the love you deserve.</p>
         <div class="hero-actions">
           <a class="button button-gold" href="#menu">Explore Our Menu <span aria-hidden="true">↓</span></a>
-          <a class="button button-light" data-whatsapp-link href="https://wa.me/2348157777770" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">◉</span> Order on WhatsApp</a>
+          <a class="button button-light" href="#menu">Start an Order <span aria-hidden="true">↓</span></a>
         </div>
         <p class="hero-tagline">Cooked with Love, Inspired by Tradition</p>
       </div>
@@ -77,7 +77,7 @@
       <div class="container">
         <div class="section-heading">
           <div><p class="eyebrow">Something delicious awaits</p><h2 class="section-title" id="menu-title">A menu made for <em>sharing.</em></h2></div>
-          <p class="section-intro">Explore the menu and find a new favourite. Send us an order enquiry on WhatsApp and we’ll confirm availability.</p>
+          <p class="section-intro">Choose your favourites, add them to your basket, and enter your order details here. We’ll send your completed order to our WhatsApp for confirmation.</p>
         </div>
         <div class="menu-filters" role="group" aria-label="Filter menu by category">
           <button class="filter-button is-active" type="button" data-filter="All" aria-pressed="true">All</button>
@@ -88,6 +88,7 @@
           <button class="filter-button" type="button" data-filter="Drinks" aria-pressed="false">Drinks</button>
         </div>
         <div class="menu-grid" id="menu-grid" aria-live="polite"></div>
+        <p class="cart-status" id="cart-status" role="status" aria-live="polite"></p>
         <p class="sample-note"><span aria-hidden="true">ⓘ</span> Menu items and prices shown are sample placeholders, not confirmed offerings or prices. Please replace them with current business details before launch.</p>
       </div>
     </section>
@@ -104,7 +105,7 @@
         <div class="offer-aside">
           <span class="offer-star" aria-hidden="true">✳</span>
           <p>Have something delicious in mind?</p>
-          <a class="button button-gold" data-whatsapp-link href="https://wa.me/2348157777770" target="_blank" rel="noopener noreferrer">Ask us on WhatsApp <span aria-hidden="true">↗</span></a>
+          <a class="button button-gold" href="#menu">Build your order <span aria-hidden="true">↓</span></a>
         </div>
       </div>
     </section>
@@ -116,7 +117,7 @@
           <article class="value-card"><span class="value-icon" aria-hidden="true">♡</span><h3>Prepared with Care</h3><p>Thoughtful preparation is at the centre of everything we make.</p></article>
           <article class="value-card"><span class="value-icon" aria-hidden="true">✳</span><h3>Inspired by Tradition</h3><p>Familiar food traditions inspire the flavours we love to share.</p></article>
           <article class="value-card"><span class="value-icon" aria-hidden="true">☼</span><h3>A Welcoming Experience</h3><p>We want every conversation and meal to feel warm and welcoming.</p></article>
-          <article class="value-card"><span class="value-icon" aria-hidden="true">↗</span><h3>Convenient Ordering</h3><p>Reach out directly on WhatsApp to ask a question or place an enquiry.</p></article>
+          <article class="value-card"><span class="value-icon" aria-hidden="true">↗</span><h3>Convenient Ordering</h3><p>Build your basket on our website and send your order details for confirmation.</p></article>
         </div>
       </div>
     </section>
@@ -138,14 +139,32 @@
       </div>
     </section>
 
+    <section class="section review-section" id="reviews" aria-labelledby="reviews-title">
+      <div class="container review-layout">
+        <div>
+          <p class="eyebrow">Your feedback matters</p>
+          <h2 class="section-title" id="reviews-title">Share your <em>experience.</em></h2>
+          <p class="section-intro">We welcome honest feedback about your experience. Your review opens as an email addressed to Marvel’s Kitchen for you to review and send.</p>
+        </div>
+        <form class="review-form" id="review-form">
+          <div class="form-field"><label for="review-name">Your name</label><input id="review-name" name="name" autocomplete="name" required placeholder="Your name"></div>
+          <div class="form-field"><label for="review-rating">Your rating</label><select id="review-rating" name="rating" required><option value="">Choose a rating</option><option value="5 out of 5">5 — Loved it</option><option value="4 out of 5">4 — Very good</option><option value="3 out of 5">3 — Good</option><option value="2 out of 5">2 — Could be better</option><option value="1 out of 5">1 — Needs improvement</option></select></div>
+          <div class="form-field"><label for="review-message">Your review</label><textarea id="review-message" name="message" rows="4" required placeholder="Tell us about your experience..."></textarea></div>
+          <button class="button button-green form-submit" type="submit">Continue by email <span aria-hidden="true">↗</span></button>
+          <p class="form-status" id="review-status" role="status" aria-live="polite"></p>
+          <p class="form-disclaimer">Your email app will open with your review addressed to Marvel’s Kitchen. You can check and send it there.</p>
+        </form>
+      </div>
+    </section>
+
     <section class="contact-section" id="contact" aria-labelledby="contact-title">
       <div class="container contact-layout">
         <div class="contact-copy">
           <p class="eyebrow">We’d love to hear from you</p>
           <h2 id="contact-title">Let’s make your<br><em>day delicious.</em></h2>
-          <p>Questions, orders, or just looking for something lovely to eat? Get in touch and let’s talk food.</p>
+          <p>Questions or feedback? Send us a message. For food orders, use the on-site menu and checkout.</p>
           <div class="contact-details">
-            <a class="contact-detail" href="tel:08119000048"><span class="detail-icon" aria-hidden="true">☎</span><span><small>Give us a call</small><strong>08119000048</strong></span></a>
+            <a class="contact-detail" data-phone-link href="tel:08119000048"><span class="detail-icon" aria-hidden="true">☎</span><span><small>Give us a call</small><strong data-phone-display>08119000048</strong></span></a>
             <a class="contact-detail" href="mailto:Marvelousufelix@gmail.com"><span class="detail-icon" aria-hidden="true">✉</span><span><small>Send us an email</small><strong>Marvelousufelix@gmail.com</strong></span></a>
             <a class="contact-detail" data-whatsapp-link href="https://wa.me/2348157727770" target="_blank" rel="noopener noreferrer"><span class="detail-icon" aria-hidden="true">◉</span><span><small>Chat with us on WhatsApp</small><strong>08157727770</strong></span></a>
             <div class="contact-detail"><span class="detail-icon" aria-hidden="true">⌖</span><span><small>Find our kitchen</small><strong data-address>Address to be supplied — update this placeholder</strong></span></div>
@@ -159,7 +178,7 @@
             <div class="form-field"><label for="customer-name">Your name <span aria-hidden="true">*</span></label><input id="customer-name" name="name" type="text" autocomplete="name" placeholder="e.g. Ada" required></div>
             <div class="form-field"><label for="customer-phone">Your phone number</label><input id="customer-phone" name="phone" type="tel" autocomplete="tel" placeholder="e.g. 080 1234 5678"></div>
           </div>
-          <div class="form-field"><label for="enquiry-type">What can we help with?</label><select id="enquiry-type" name="type"><option>Food order</option><option>Menu and prices</option><option>Delivery or pickup</option><option>Event enquiry</option><option>Something else</option></select></div>
+          <div class="form-field"><label for="enquiry-type">What can we help with?</label><select id="enquiry-type" name="type"><option>General question</option><option>Menu and prices</option><option>Delivery or pickup information</option><option>Event enquiry</option><option>Something else</option></select></div>
           <div class="form-field"><label for="enquiry-message">Your message <span aria-hidden="true">*</span></label><textarea id="enquiry-message" name="message" rows="4" placeholder="Tell us what you have in mind..." required></textarea></div>
           <button class="button button-green form-submit" type="submit">Continue in WhatsApp <span aria-hidden="true">↗</span></button>
           <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
@@ -172,10 +191,34 @@
   <footer class="site-footer">
     <div class="container footer-main">
       <a class="footer-brand" href="#home"><img src="assets/marvels-kitchen-logo.png" alt="" width="56" height="56"><span><strong>Marvel’s Kitchen</strong><small>Cooked with Love, Inspired by Tradition</small></span></a>
-      <nav class="footer-links" aria-label="Footer navigation"><a href="#about">Our Story</a><a href="#menu">Menu</a><a href="#offers">Special Offers</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a></nav>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="#about">Our Story</a><a href="#menu">Menu</a><a href="#offers">Special Offers</a><a href="#gallery">Gallery</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></nav>
       <a class="footer-top" href="#home">Back to top <span aria-hidden="true">↑</span></a>
     </div>
     <div class="container footer-bottom"><span>© <span id="current-year"></span> Marvel’s Kitchen. All rights reserved.</span><span>Good food, made with love in Nigeria.</span></div>
   </footer>
+  <button class="cart-launch" id="cart-launch" type="button" aria-haspopup="dialog" aria-controls="cart-dialog" aria-label="Open your order basket">
+    <span aria-hidden="true">▣</span> Your order <span class="cart-count" id="cart-count">0</span>
+  </button>
+  <dialog class="cart-dialog" id="cart-dialog" aria-labelledby="cart-title">
+    <div class="cart-header">
+      <div><p class="eyebrow">Your selections</p><h2 id="cart-title">Your order</h2></div>
+      <button class="cart-close" id="cart-close" type="button" aria-label="Close basket">×</button>
+    </div>
+    <div class="cart-body">
+      <div class="cart-items" id="cart-items" aria-live="polite"></div>
+      <div class="cart-total" id="cart-total"></div>
+      <form class="checkout-form" id="checkout-form">
+        <p class="form-kicker">Order details</p>
+        <div class="form-field"><label for="checkout-name">Your name <span aria-hidden="true">*</span></label><input id="checkout-name" name="name" autocomplete="name" required></div>
+        <div class="form-field"><label for="checkout-phone">Phone number <span aria-hidden="true">*</span></label><input id="checkout-phone" name="phone" type="tel" autocomplete="tel" required placeholder="e.g. 080 1234 5678"></div>
+        <div class="form-field"><label for="fulfilment">Pickup or delivery? <span aria-hidden="true">*</span></label><select id="fulfilment" name="fulfilment" required><option value="">Choose an option</option><option value="Pickup">Pickup</option><option value="Delivery">Delivery</option></select></div>
+        <div class="form-field delivery-address-field" id="delivery-address-field" hidden><label for="delivery-address">Delivery address <span aria-hidden="true">*</span></label><textarea id="delivery-address" name="address" rows="2" placeholder="Enter your delivery address"></textarea></div>
+        <div class="form-field"><label for="checkout-notes">Order notes <span class="optional-label">(optional)</span></label><textarea id="checkout-notes" name="notes" rows="2" placeholder="Allergies or other requests"></textarea></div>
+        <button class="button button-green form-submit" type="submit">Send order for confirmation <span aria-hidden="true">↗</span></button>
+        <p class="form-status" id="checkout-status" role="status" aria-live="polite"></p>
+        <p class="form-disclaimer">No payment is taken on this website. Your order details open in WhatsApp so you can send them and confirm availability, delivery, and payment with us.</p>
+      </form>
+    </div>
+  </dialog>
 </body>
 </html>
