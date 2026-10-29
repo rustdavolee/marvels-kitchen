@@ -1,27 +1,54 @@
 # Marvel’s Kitchen
 
-A responsive, single-page website made with HTML, CSS, and vanilla JavaScript. It runs directly in a browser and has no build step, framework, server, or database requirement.
+This project now includes a modern full-stack application alongside the
+original standalone website:
 
-## Run the website
+- `web/` — Next.js App Router frontend using React and Tailwind CSS 4.
+- `api/` — Rust API with SQLite persistence for orders and an authenticated
+  staff order-management API.
+- Root `index.html`, `style.css`, and `script.js` — the original static
+  GitHub Pages site, preserved for continuity.
 
-1. Open this project folder in Visual Studio Code.
-2. Open `index.html` in a browser. You can also use a local static preview extension such as Live Server.
-3. An internet connection is needed to load the illustrative Unsplash food photographs and optional Google Fonts. If a photograph cannot load, the page uses the local image at `assets/food-placeholder.svg`.
+## Run the full-stack application
 
-The original supplied `marvels_kitchen_website.html` has been left untouched. The supplied logo is reused from `assets/marvels-kitchen-logo.png`.
+See [`web/README.md`](./web/README.md) for the frontend instructions and API
+contract. Start the Rust API first, then start the Next.js app. The frontend
+loads the menu and prices from the API, saves checked-out orders in SQLite,
+and offers the customer a link to send their saved order to Marvel’s Kitchen
+on WhatsApp.
 
-## Update before launch
+The admin page is `/admin`. It requires the API key configured on the backend
+and lets staff review saved order details and update their status. Store
+`ADMIN_API_KEY` only in the backend environment; never put it in a `NEXT_PUBLIC_`
+variable or commit a real secret.
 
-- **WhatsApp number:** Edit the clearly labelled `BUSINESS.whatsapp` value near the top of `script.js`. Use the international country code and omit the leading zero (for example, convert a local `080...` number to `23480...`).
-- **Phone, email, and address:** Update the `BUSINESS` object in `script.js` and the corresponding visible contact details and links in `index.html`. The address currently is an editable placeholder.
-- **Menu:** Edit the `MENU_ITEMS` array in `script.js`. Each item contains a name, description, numeric price in naira, category, photograph URL, and alternative text. Prices and dishes currently shown are sample placeholders, not verified business details.
-- **Offers:** Replace the labelled sample promotion in the offers section of `index.html` with a genuine current offer, or remove that section.
-- **Photography:** Replace the illustrative Unsplash image URLs in `index.html` and `script.js` with photographs you have permission to use. Local images can be placed in `assets/` and referenced with paths such as `assets/my-dish.jpg`.
-- **Logo:** Replace `assets/marvels-kitchen-logo.png` with the final business logo if needed, keeping the same filename or updating both image references in `index.html`.
-- **Reviews:** Visitors can submit feedback using the review form; it opens an email to the business for the visitor to review and send. Add published testimonials only when you have authentic customer reviews and permission to share them.
+## Important business settings
 
-Customers can add menu items to the on-site order basket, adjust quantities, and enter contact, pickup, delivery, and order-note details. Soup orders require the customer's complimentary swallow choice. Checkout shows a food subtotal and makes clear that any delivery fee and final total must be confirmed by the kitchen; the order opens in WhatsApp for the customer to review and send. The website does not take payment, store or automatically submit orders, or store personal information. Review and general-enquiry forms open the visitor's email or WhatsApp app respectively; the visitor must send each message.
+- The call number is `08119000048`.
+- The WhatsApp number displayed and used by the full-stack site comes from the
+  single `WHATSAPP_NUMBER` constant near the top of
+  [`api/src/lib.rs`](./api/src/lib.rs); it is currently `2348157727770`
+  (`08157727770` in local format).
+- The address remains an editable placeholder.
+- Menu items and prices are sample data until confirmed by the business.
+- Food photographs are illustrative downloaded images, not photos of Marvel’s
+  Kitchen meals. Replace them with genuine business photography before launch.
+- Soup orders include one complimentary swallow of the customer’s choice.
+- The order flow does not take payment. Delivery availability and any fee must
+  be confirmed by the kitchen.
+- When the Rust API is offline, checkout offers a preview-only test flow; it
+  does not save orders, and any WhatsApp message is labelled as a test. It is
+  not a substitute for the live ordering API.
+- The review form opens an email for the customer to review and send. No
+  customer reviews are displayed or fabricated.
 
-## Publish
+## Deployment
 
-Upload this folder’s website files and `assets/` directory to any static web host, such as GitHub Pages, Netlify, or a standard web host. Keep `index.html`, `style.css`, `script.js`, and `assets/` together in the published site root. No build or package installation is required.
+The existing GitHub Pages deployment is the static root-level site. It cannot
+run the Next.js server or Rust API. Deploy `web/` and `api/` to hosting that
+supports long-running Node.js and Rust services, configure HTTPS and API CORS,
+set backend secrets in the hosting environment, and attach persistent storage
+for the SQLite database before moving the public domain.
+
+Do not use the sample catalog or sample prices for live customer orders until
+they have been replaced with business-approved menu data.

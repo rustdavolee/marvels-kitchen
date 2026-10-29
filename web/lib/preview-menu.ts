@@ -1,0 +1,133 @@
+import type { MenuItem } from "@/lib/api";
+
+export const previewMenu: MenuItem[] = [
+  {
+    id: "jollof-rice",
+    name: "Jollof Rice",
+    description:
+      "A much-loved West African rice dish with rich tomato and pepper flavours.",
+    amount_ngn: 4500,
+    category: "Rice Dishes",
+    image_url: "/assets/menu/jollof.jpg",
+    image_alt: "Illustrative food photograph for the Jollof Rice sample menu item",
+    includes_complimentary_swallow: false,
+  },
+  {
+    id: "fried-rice",
+    name: "Fried Rice",
+    description:
+      "Colourful rice with vegetables and a satisfying mix of savoury flavours.",
+    amount_ngn: 5000,
+    category: "Rice Dishes",
+    image_url: "/assets/menu/fried-rice.jpg",
+    image_alt: "Illustrative food photograph for the Fried Rice sample menu item",
+    includes_complimentary_swallow: false,
+  },
+  {
+    id: "ofada-rice",
+    name: "Ofada Rice",
+    description:
+      "A beloved local rice favourite, served with a rich pepper sauce.",
+    amount_ngn: 5500,
+    category: "Rice Dishes",
+    image_url: "/assets/menu/ofada-rice.jpg",
+    image_alt: "Illustrative food photograph for the Ofada Rice sample menu item",
+    includes_complimentary_swallow: false,
+  },
+  {
+    id: "egusi-soup",
+    name: "Egusi Soup",
+    description:
+      "A hearty melon-seed soup inspired by traditional Nigerian cooking.",
+    amount_ngn: 4000,
+    category: "Soups and Swallows",
+    image_url: "/assets/menu/egusi-soup.jpg",
+    image_alt: "Illustrative food photograph for the Egusi Soup sample menu item",
+    includes_complimentary_swallow: true,
+  },
+  {
+    id: "okra-soup",
+    name: "Okra Soup",
+    description:
+      "A comforting, flavourful soup with a complimentary swallow of your choice.",
+    amount_ngn: 3800,
+    category: "Soups and Swallows",
+    image_url: "/assets/menu/okra-soup.jpg",
+    image_alt: "Illustrative food photograph for the Okra Soup sample menu item",
+    includes_complimentary_swallow: true,
+  },
+  {
+    id: "pounded-yam",
+    name: "Pounded Yam",
+    description: "A soft, satisfying swallow pairing for your favourite soup.",
+    amount_ngn: 1800,
+    category: "Soups and Swallows",
+    image_url: "/assets/menu/pounded-yam.jpg",
+    image_alt: "Illustrative food photograph for the Pounded Yam sample menu item",
+    includes_complimentary_swallow: false,
+  },
+  {
+    id: "grilled-chicken",
+    name: "Grilled Chicken",
+    description:
+      "A savoury protein option with a deliciously seasoned finish.",
+    amount_ngn: 3500,
+    category: "Proteins and Sides",
+    image_url: "/assets/menu/grilled-chicken.jpg",
+    image_alt:
+      "Illustrative food photograph for the Grilled Chicken sample menu item",
+    includes_complimentary_swallow: false,
+  },
+  {
+    id: "moi-moi",
+    name: "Moi Moi",
+    description:
+      "A tender steamed bean pudding and a versatile meal-time favourite.",
+    amount_ngn: 1500,
+    category: "Proteins and Sides",
+    image_url: "/assets/menu/moi-moi.jpg",
+    image_alt: "Illustrative food photograph for the Moi Moi sample menu item",
+    includes_complimentary_swallow: false,
+  },
+  {
+    id: "meat-pie",
+    name: "Meat Pie",
+    description: "A golden, savoury pastry idea for a quick bite or a light snack.",
+    amount_ngn: 1200,
+    category: "Snacks",
+    image_url: "/assets/menu/meat-pie.jpg",
+    image_alt: "Illustrative food photograph for the Meat Pie sample menu item",
+    includes_complimentary_swallow: false,
+  },
+  {
+    id: "puff-puff",
+    name: "Puff-Puff",
+    description: "A soft, golden snack made for sharing and enjoying together.",
+    amount_ngn: 1000,
+    category: "Snacks",
+    image_url: "/assets/menu/puff-puff.jpg",
+    image_alt: "Illustrative food photograph for the Puff-Puff sample menu item",
+    includes_complimentary_swallow: false,
+  },
+  {
+    id: "fresh-zobo",
+    name: "Fresh Zobo",
+    description:
+      "A refreshing hibiscus drink, perfect alongside a lovely meal.",
+    amount_ngn: 1000,
+    category: "Drinks",
+    image_url: "/assets/menu/zobo.jpg",
+    image_alt: "Illustrative food photograph for the Fresh Zobo sample menu item",
+    includes_complimentary_swallow: false,
+  },
+  {
+    id: "fruit-juice",
+    name: "Fruit Juice",
+    description: "A bright, fruity drink to round out your meal.",
+    amount_ngn: 1500,
+    category: "Drinks",
+    image_url: "/assets/menu/juice.jpg",
+    image_alt: "Illustrative food photograph for the Fruit Juice sample menu item",
+    includes_complimentary_swallow: false,
+  },
+];

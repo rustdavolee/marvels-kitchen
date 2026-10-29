@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+:root {
+  --forest: #123d2b;
+  --deep: #0a241a;
+  --gold: #c9a227;
+  --cream: #fff8eb;
+  --ink: #252525;
+  --muted: #696960;
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: Arial, Helvetica, sans-serif;
+}
+
+@theme inline {
+  --color-forest: var(--forest);
+  --color-deep: var(--deep);
+  --color-gold: var(--gold);
+  --color-cream: var(--cream);
+  --font-display: var(--serif);
+  --font-sans: var(--sans);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+body { margin: 0; background: #fff; color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+button, input, select, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid #c9a227; outline-offset: 3px; }
+.container { width: min(1180px, calc(100% - 48px)); margin-inline: auto; }
+.section-space { padding-block: clamp(4.5rem, 8vw, 7rem); }
+.eyebrow { margin: 0 0 .8rem; color: var(--gold); font-size: .73rem; font-weight: 700; letter-spacing: .19em; line-height: 1.4; text-transform: uppercase; }
+.section-title { margin: 0; color: var(--forest); font-family: var(--serif); font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 500; letter-spacing: -.045em; line-height: 1.1; }
+.section-title em { color: var(--gold); font-weight: 500; }
+.body-copy { color: var(--muted); line-height: 1.85; }
+.button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: .6rem; padding: .75rem 1.3rem; border: 1px solid transparent; border-radius: 3px; font-size: .88rem; font-weight: 700; transition: background .2s, color .2s, border-color .2s, transform .2s; }
+.button:hover { transform: translateY(-2px); }
+.button-gold { background: var(--gold); color: var(--deep); }
+.button-gold:hover { background: #dfbd55; }
+.button-outline { border-color: rgba(255,255,255,.75); color: #fff; }
+.button-outline:hover { background: rgba(255,255,255,.12); }
+.button-green { background: var(--forest); color: #fff; }
+.button-green:hover { background: var(--deep); }
+.soft-shadow { box-shadow: 0 16px 44px rgba(10,36,26,.1); }
+
+@media (max-width: 640px) {
+  .container { width: min(100% - 32px, 1180px); }
+  .section-space { padding-block: 4.25rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}

@@ -1,0 +1,16 @@
+# Next.js frontend
+web/.next/
+web/node_modules/
+web/out/
+web/.env*
+!web/.env.example
+web/next-env.d.ts.tmp
+
+# Rust backend
+api/target/
+api/data/
+api/.env
+
+# Local tooling
+.DS_Store
+Thumbs.db
