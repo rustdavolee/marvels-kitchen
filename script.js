@@ -12,8 +12,8 @@ const MENU_ITEMS = [
   { name: "Jollof Rice", description: "A much-loved West African rice dish with rich tomato and pepper flavours.", price: 4500, category: "Rice Dishes", image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80", alt: "A colourful plate of rice and vegetables" },
   { name: "Fried Rice", description: "Colourful rice with vegetables and a satisfying mix of savoury flavours.", price: 5000, category: "Rice Dishes", image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=900&q=80", alt: "A bowl of rice with fresh vegetables" },
   { name: "Ofada Rice", description: "A beloved local rice favourite, served with a rich pepper sauce.", price: 5500, category: "Rice Dishes", image: "https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=900&q=80", alt: "A serving of rice ready to enjoy" },
-  { name: "Egusi Soup", description: "A hearty melon-seed soup inspired by traditional Nigerian cooking.", price: 4000, category: "Soups and Swallows", image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80", alt: "A comforting bowl of soup and accompaniments" },
-  { name: "Okra Soup", description: "A comforting, flavourful soup to enjoy with your choice of swallow.", price: 3800, category: "Soups and Swallows", image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80", alt: "A freshly prepared traditional-style soup" },
+  { name: "Egusi Soup", description: "A hearty melon-seed soup inspired by traditional Nigerian cooking. Includes one complimentary swallow of your choice.", price: 4000, category: "Soups and Swallows", image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80", alt: "A comforting bowl of soup and accompaniments" },
+  { name: "Okra Soup", description: "A comforting, flavourful soup. Includes one complimentary swallow of your choice.", price: 3800, category: "Soups and Swallows", image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80", alt: "A freshly prepared traditional-style soup" },
   { name: "Pounded Yam", description: "A soft, satisfying swallow pairing for your favourite soup.", price: 1800, category: "Soups and Swallows", image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80", alt: "A meal served with a traditional swallow" },
   { name: "Grilled Chicken", description: "A savoury protein option with a deliciously seasoned finish.", price: 3500, category: "Proteins and Sides", image: "https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=900&q=80", alt: "Seasoned grilled chicken served with fresh sides" },
   { name: "Moi Moi", description: "A tender steamed bean pudding and a versatile meal-time favourite.", price: 1500, category: "Proteins and Sides", image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80", alt: "A freshly prepared savoury side dish" },
@@ -301,13 +301,16 @@ function setupCart() {
     const items = [...cart.values()];
     const subtotal = items.reduce((sum, entry) => sum + entry.item.price * entry.quantity, 0);
     const lines = items.map(({ item, quantity }) =>
-      `• ${item.name} × ${quantity} — ${formatNaira(item.price * quantity)}`
+      `• ${item.name} × ${quantity} — ${formatNaira(item.price * quantity)}${item.category === "Soups and Swallows" ? " (includes one complimentary swallow of your choice per soup)" : ""}`
     );
     const message = [
       `Hello ${BUSINESS.name}! I would like to place an order.`,
       "",
       "ORDER SUMMARY",
       ...lines,
+      items.some(({ item }) => item.category === "Soups and Swallows")
+        ? "Complimentary swallow choice: please see order notes below."
+        : "",
       `Subtotal: ${formatNaira(subtotal)}`,
       "",
       `Customer: ${name}`,
