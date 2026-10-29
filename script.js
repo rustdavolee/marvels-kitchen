@@ -197,6 +197,8 @@ function renderCart() {
   const countBadge = document.getElementById("cart-count");
   const totalContainer = document.getElementById("cart-total");
   const checkoutForm = document.getElementById("checkout-form");
+  const menuCartSummary = document.getElementById("menu-cart-summary");
+  const menuCartTotal = document.getElementById("menu-cart-total");
   const rows = [...cart.values()].map(({ item, quantity }) => {
     const row = document.createElement("div");
     row.className = "cart-item";
@@ -240,6 +242,12 @@ function renderCart() {
   countBadge.textContent = String(count);
   document.getElementById("cart-launch").setAttribute("aria-label", `Open your order basket, ${count} ${count === 1 ? "item" : "items"}`);
   totalContainer.textContent = count > 0 ? `Subtotal: ${formatNaira(total)}` : "";
+  menuCartSummary.textContent = count === 0
+    ? "Your basket is empty"
+    : `${count} ${count === 1 ? "item" : "items"} in your basket`;
+  menuCartTotal.textContent = count === 0
+    ? "Add a dish to start your order"
+    : `Subtotal: ${formatNaira(total)}`;
   checkoutForm.hidden = count === 0;
 }
 
@@ -259,13 +267,16 @@ function changeCartQuantity(name, change) {
 function setupCart() {
   const dialog = document.getElementById("cart-dialog");
   const launch = document.getElementById("cart-launch");
+  const menuLaunch = document.getElementById("menu-cart-open");
   const close = document.getElementById("cart-close");
   const fulfilment = document.getElementById("fulfilment");
   const address = document.getElementById("delivery-address");
   const form = document.getElementById("checkout-form");
   const status = document.getElementById("checkout-status");
 
-  launch.addEventListener("click", () => dialog.showModal());
+  const openCart = () => dialog.showModal();
+  launch.addEventListener("click", openCart);
+  menuLaunch.addEventListener("click", openCart);
   close.addEventListener("click", () => dialog.close());
   dialog.addEventListener("click", (event) => {
     if (event.target === dialog) dialog.close();
