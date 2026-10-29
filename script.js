@@ -2,9 +2,9 @@
 const BUSINESS = {
   name: "Marvel’s Kitchen",
   email: "Marvelousufelix@gmail.com",
-  phoneDisplay: "08157727770",
+  phoneDisplay: "08119000048",
   // WhatsApp format: Nigeria country code +234, without the leading zero.
-  whatsapp: "2348157777770",
+  whatsapp: "2348157727770",
   address: "Address to be supplied — update this placeholder"
 };
 

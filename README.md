@@ -12,7 +12,7 @@ The original supplied `marvels_kitchen_website.html` has been left untouched. Th
 
 ## Update before launch
 
-- **WhatsApp number:** Edit the clearly labelled `BUSINESS.whatsapp` value near the top of `script.js`. Use the international country code and omit the leading zero (Nigeria example: `2348157777770`).
+- **WhatsApp number:** Edit the clearly labelled `BUSINESS.whatsapp` value near the top of `script.js`. Use the international country code and omit the leading zero (for example, convert a local `080...` number to `23480...`).
 - **Phone, email, and address:** Update the `BUSINESS` object in `script.js` and the corresponding visible contact details and links in `index.html`. The address currently is an editable placeholder.
 - **Menu:** Edit the `MENU_ITEMS` array in `script.js`. Each item contains a name, description, numeric price in naira, category, photograph URL, and alternative text. Prices and dishes currently shown are sample placeholders, not verified business details.
 - **Offers:** Replace the labelled sample promotion in the offers section of `index.html` with a genuine current offer, or remove that section.
