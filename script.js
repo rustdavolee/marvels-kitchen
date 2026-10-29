@@ -195,14 +195,25 @@ function renderCart() {
   const count = [...cart.values()].reduce((total, entry) => total + entry.quantity, 0);
   const total = [...cart.values()].reduce((sum, entry) => sum + entry.item.price * entry.quantity, 0);
   const countBadge = document.getElementById("cart-count");
-  const totalContainer = document.getElementById("cart-total");
+  const fulfilment = document.getElementById("fulfilment").value;
+  const hasSoup = [...cart.values()].some(({ item }) => item.category === "Soups and Swallows" && item.name !== "Pounded Yam");
   const checkoutForm = document.getElementById("checkout-form");
   const menuCartSummary = document.getElementById("menu-cart-summary");
   const menuCartTotal = document.getElementById("menu-cart-total");
   const rows = [...cart.values()].map(({ item, quantity }) => {
     const row = document.createElement("div");
     row.className = "cart-item";
+    const image = document.createElement("img");
+    image.className = "cart-item-image";
+    image.src = item.image;
+    image.alt = item.alt;
+    image.loading = "lazy";
+    image.addEventListener("error", () => {
+      image.src = FALLBACK_IMAGE;
+    }, { once: true });
+
     const description = document.createElement("div");
+    description.className = "cart-item-description";
     const title = document.createElement("strong");
     title.textContent = item.name;
     const price = document.createElement("span");
@@ -228,7 +239,7 @@ function renderCart() {
     const lineTotal = document.createElement("strong");
     lineTotal.className = "cart-line-total";
     lineTotal.textContent = formatNaira(item.price * quantity);
-    row.append(description, controls, lineTotal);
+    row.append(image, description, controls, lineTotal);
     return row;
   });
 
@@ -241,13 +252,26 @@ function renderCart() {
   }
   countBadge.textContent = String(count);
   document.getElementById("cart-launch").setAttribute("aria-label", `Open your order basket, ${count} ${count === 1 ? "item" : "items"}`);
-  totalContainer.textContent = count > 0 ? `Subtotal: ${formatNaira(total)}` : "";
   menuCartSummary.textContent = count === 0
     ? "Your basket is empty"
     : `${count} ${count === 1 ? "item" : "items"} in your basket`;
   menuCartTotal.textContent = count === 0
     ? "Add a dish to start your order"
     : `Subtotal: ${formatNaira(total)}`;
+  document.getElementById("cart-subtotal").textContent = formatNaira(total);
+  document.getElementById("cart-delivery").textContent = fulfilment === "Pickup"
+    ? "Not applicable for pickup"
+    : fulfilment === "Delivery"
+      ? "Confirmed on WhatsApp"
+      : "Choose pickup or delivery";
+  document.getElementById("cart-total").textContent = count > 0 ? formatNaira(total) : "—";
+  document.getElementById("cart-price-note").textContent = fulfilment === "Delivery"
+    ? "Delivery fee is not included. The kitchen will confirm it and your final total before payment."
+    : fulfilment === "Pickup"
+      ? "Pickup total is the food subtotal. The kitchen will confirm availability before payment."
+      : "Choose pickup or delivery to see what is included. No payment is taken on this website.";
+  document.getElementById("swallow-choice-field").hidden = !hasSoup;
+  document.getElementById("swallow-choice").required = hasSoup;
   checkoutForm.hidden = count === 0;
 }
 
@@ -271,6 +295,7 @@ function setupCart() {
   const close = document.getElementById("cart-close");
   const fulfilment = document.getElementById("fulfilment");
   const address = document.getElementById("delivery-address");
+  const swallowChoice = document.getElementById("swallow-choice");
   const form = document.getElementById("checkout-form");
   const status = document.getElementById("checkout-status");
 
@@ -278,6 +303,17 @@ function setupCart() {
   launch.addEventListener("click", openCart);
   menuLaunch.addEventListener("click", openCart);
   close.addEventListener("click", () => dialog.close());
+  document.getElementById("checkout-continue").addEventListener("click", () => dialog.close());
+  document.getElementById("cart-clear").addEventListener("click", () => {
+    cart.clear();
+    form.reset();
+    address.required = false;
+    swallowChoice.required = false;
+    document.getElementById("delivery-address-field").hidden = true;
+    document.getElementById("swallow-choice-field").hidden = true;
+    status.textContent = "";
+    renderCart();
+  });
   dialog.addEventListener("click", (event) => {
     if (event.target === dialog) dialog.close();
   });
@@ -286,6 +322,7 @@ function setupCart() {
     const deliverySelected = fulfilment.value === "Delivery";
     document.getElementById("delivery-address-field").hidden = !deliverySelected;
     address.required = deliverySelected;
+    renderCart();
   });
 
   form.addEventListener("submit", (event) => {
@@ -297,24 +334,29 @@ function setupCart() {
     const phone = String(formData.get("phone")).trim();
     const fulfilmentType = String(formData.get("fulfilment"));
     const deliveryAddress = String(formData.get("address")).trim();
+    const email = String(formData.get("email")).trim();
+    const preferredSwallow = String(formData.get("swallowChoice")).trim();
     const notes = String(formData.get("notes")).trim();
     const items = [...cart.values()];
     const subtotal = items.reduce((sum, entry) => sum + entry.item.price * entry.quantity, 0);
     const lines = items.map(({ item, quantity }) =>
-      `• ${item.name} × ${quantity} — ${formatNaira(item.price * quantity)}${item.category === "Soups and Swallows" ? " (includes one complimentary swallow of your choice per soup)" : ""}`
+      `• ${item.name} × ${quantity} — ${formatNaira(item.price * quantity)}${item.category === "Soups and Swallows" && item.name !== "Pounded Yam" ? " (includes one complimentary swallow of your choice per soup)" : ""}`
     );
     const message = [
       `Hello ${BUSINESS.name}! I would like to place an order.`,
       "",
       "ORDER SUMMARY",
       ...lines,
-      items.some(({ item }) => item.category === "Soups and Swallows")
-        ? "Complimentary swallow choice: please see order notes below."
+      items.some(({ item }) => item.category === "Soups and Swallows" && item.name !== "Pounded Yam")
+        ? `Complimentary swallow choice: ${preferredSwallow}`
         : "",
       `Subtotal: ${formatNaira(subtotal)}`,
+      fulfilmentType === "Delivery" ? "Delivery fee: To be confirmed by the kitchen." : "",
+      `Total: ${formatNaira(subtotal)}${fulfilmentType === "Delivery" ? " plus confirmed delivery fee" : ""}`,
       "",
       `Customer: ${name}`,
       `Phone: ${phone}`,
+      email ? `Email: ${email}` : "",
       fulfilmentType === "Delivery" ? `Delivery address: ${deliveryAddress}` : "Fulfilment: Pickup",
       notes ? `Order notes: ${notes}` : "",
       "",

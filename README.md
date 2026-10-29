@@ -20,7 +20,7 @@ The original supplied `marvels_kitchen_website.html` has been left untouched. Th
 - **Logo:** Replace `assets/marvels-kitchen-logo.png` with the final business logo if needed, keeping the same filename or updating both image references in `index.html`.
 - **Reviews:** Visitors can submit feedback using the review form; it opens an email to the business for the visitor to review and send. Add published testimonials only when you have authentic customer reviews and permission to share them.
 
-Customers can add menu items to the on-site order basket, adjust quantities, and enter pickup or delivery details. Every soup comes with one complimentary swallow of the customer's choice; ask customers to specify their selection in the order notes. Checkout prepares the complete order summary in WhatsApp for the customer to review and send to the business. The website does not take payment, store or automatically submit orders, or store personal information. Review and general-enquiry forms open the visitor's email or WhatsApp app respectively; the visitor must send each message.
+Customers can add menu items to the on-site order basket, adjust quantities, and enter contact, pickup, delivery, and order-note details. Soup orders require the customer's complimentary swallow choice. Checkout shows a food subtotal and makes clear that any delivery fee and final total must be confirmed by the kitchen; the order opens in WhatsApp for the customer to review and send. The website does not take payment, store or automatically submit orders, or store personal information. Review and general-enquiry forms open the visitor's email or WhatsApp app respectively; the visitor must send each message.
 
 ## Publish
 

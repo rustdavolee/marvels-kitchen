@@ -7,8 +7,8 @@
   <meta name="description" content="Marvel’s Kitchen — cooked with love, inspired by tradition. Discover delicious meals and order directly on WhatsApp.">
   <title>Marvel’s Kitchen | Cooked with Love, Inspired by Tradition</title>
   <link rel="preconnect" href="https://images.unsplash.com">
-  <link rel="stylesheet" href="style.css?v=20261029-menu-update">
-  <script src="script.js?v=20261029-menu-update" defer></script>
+  <link rel="stylesheet" href="style.css?v=20261029-checkout-v2">
+  <script src="script.js?v=20261029-checkout-v2" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -16,6 +16,7 @@
     <div class="container nav-wrap">
       <a class="brand" href="#home" aria-label="Marvel’s Kitchen home">
         <img src="assets/marvels-kitchen-logo.png" alt="Marvel’s Kitchen logo" width="72" height="72">
+        <span class="brand-name">Marvel’s Kitchen</span>
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Open navigation menu">
         <span></span><span></span><span></span>
@@ -39,8 +40,8 @@
         <h1 id="hero-title">Good Food.<br>Great Moments.<br><em>Made with Love.</em></h1>
         <p class="hero-copy">Discover delicious meals inspired by tradition, prepared with care, and served with the love you deserve.</p>
         <div class="hero-actions">
-          <a class="button button-gold" href="#menu">Start an Order <span aria-hidden="true">↓</span></a>
           <a class="button button-light" href="#menu">Explore Our Menu <span aria-hidden="true">↓</span></a>
+          <a class="button button-gold" href="#menu">Start an Order <span aria-hidden="true">↓</span></a>
         </div>
         <p class="hero-tagline">Cooked with Love, Inspired by Tradition</p>
       </div>
@@ -196,7 +197,7 @@
 
   <footer class="site-footer">
     <div class="container footer-main">
-      <a class="footer-brand" href="#home" aria-label="Back to home"><img src="assets/marvels-kitchen-logo.png" alt="Marvel’s Kitchen logo" width="56" height="56"></a>
+      <a class="footer-brand" href="#home" aria-label="Back to home"><img src="assets/marvels-kitchen-logo.png" alt="Marvel’s Kitchen logo" width="64" height="64"><span class="footer-brand-name">Marvel’s Kitchen</span></a>
       <nav class="footer-links" aria-label="Footer navigation"><a href="#about">Our Story</a><a href="#menu">Menu</a><a href="#offers">Special Offers</a><a href="#gallery">Gallery</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></nav>
       <a class="footer-top" href="#home">Back to top <span aria-hidden="true">↑</span></a>
     </div>
@@ -207,22 +208,30 @@
   </button>
   <dialog class="cart-dialog" id="cart-dialog" aria-labelledby="cart-title">
     <div class="cart-header">
-      <div><p class="eyebrow">Your selections</p><h2 id="cart-title">Your order</h2></div>
+      <div class="cart-heading-copy"><p class="eyebrow">Marvel’s Kitchen</p><h2 id="cart-title">Your order</h2><p class="cart-reference">Review your items and order details</p></div>
       <button class="cart-close" id="cart-close" type="button" aria-label="Close basket">×</button>
     </div>
     <div class="cart-body">
+      <div class="cart-section-heading"><h3>Your items</h3><button class="cart-clear" id="cart-clear" type="button">Clear order</button></div>
       <div class="cart-items" id="cart-items" aria-live="polite"></div>
-      <div class="cart-total" id="cart-total"></div>
+      <div class="cart-summary" aria-label="Order price summary">
+        <div><span>Food subtotal</span><strong id="cart-subtotal">₦0</strong></div>
+        <div><span>Delivery fee</span><strong id="cart-delivery">Choose delivery or pickup</strong></div>
+        <div class="cart-grand-total"><span>Total to confirm</span><strong id="cart-total">₦0</strong></div>
+        <p id="cart-price-note">Final total will be confirmed with the kitchen before payment.</p>
+      </div>
       <form class="checkout-form" id="checkout-form">
-        <p class="form-kicker">Order details</p>
-        <div class="form-field"><label for="checkout-name">Your name <span aria-hidden="true">*</span></label><input id="checkout-name" name="name" autocomplete="name" required></div>
-        <div class="form-field"><label for="checkout-phone">Phone number <span aria-hidden="true">*</span></label><input id="checkout-phone" name="phone" type="tel" autocomplete="tel" required placeholder="e.g. 080 1234 5678"></div>
+        <p class="form-kicker">Your details</p>
+        <div class="form-field"><label for="checkout-name">Full name <span aria-hidden="true">*</span></label><input id="checkout-name" name="name" autocomplete="name" required placeholder="Name for this order"></div>
+        <div class="form-field"><label for="checkout-phone">Phone number <span aria-hidden="true">*</span></label><input id="checkout-phone" name="phone" type="tel" autocomplete="tel" required placeholder="Number we can reach you on"></div>
+        <div class="form-field"><label for="checkout-email">Email address <span class="optional-label">(optional)</span></label><input id="checkout-email" name="email" type="email" autocomplete="email" placeholder="you@example.com"></div>
         <div class="form-field"><label for="fulfilment">Pickup or delivery? <span aria-hidden="true">*</span></label><select id="fulfilment" name="fulfilment" required><option value="">Choose an option</option><option value="Pickup">Pickup</option><option value="Delivery">Delivery</option></select></div>
-        <div class="form-field delivery-address-field" id="delivery-address-field" hidden><label for="delivery-address">Delivery address <span aria-hidden="true">*</span></label><textarea id="delivery-address" name="address" rows="2" placeholder="Enter your delivery address"></textarea></div>
-        <div class="form-field"><label for="checkout-notes">Order notes <span class="optional-label">(optional)</span></label><textarea id="checkout-notes" name="notes" rows="2" placeholder="Allergies or other requests"></textarea></div>
-        <button class="button button-green form-submit" type="submit">Send order for confirmation <span aria-hidden="true">↗</span></button>
+        <div class="form-field delivery-address-field" id="delivery-address-field" hidden><label for="delivery-address">Delivery address <span aria-hidden="true">*</span></label><textarea id="delivery-address" name="address" rows="2" placeholder="House number, street, area, and useful directions"></textarea><small>Delivery availability and fee will be confirmed by the kitchen.</small></div>
+        <div class="form-field swallow-choice-field" id="swallow-choice-field" hidden><label for="swallow-choice">Complimentary swallow choice <span aria-hidden="true">*</span></label><input id="swallow-choice" name="swallowChoice" placeholder="Tell us your preferred swallow"><small>One complimentary swallow is included with each soup serving.</small></div>
+        <div class="form-field"><label for="checkout-notes">Additional order notes <span class="optional-label">(optional)</span></label><textarea id="checkout-notes" name="notes" rows="3" placeholder="Allergies or other requests"></textarea></div>
+        <div class="checkout-actions"><button class="button button-light checkout-continue" id="checkout-continue" type="button">Continue shopping</button><button class="button button-green form-submit" type="submit">Review order in WhatsApp <span aria-hidden="true">↗</span></button></div>
         <p class="form-status" id="checkout-status" role="status" aria-live="polite"></p>
-        <p class="form-disclaimer">No payment is taken on this website. Your order details open in WhatsApp so you can send them and confirm availability, delivery, and payment with us.</p>
+        <p class="form-disclaimer">Your completed order opens in WhatsApp for you to review and send. This website does not take payment. The kitchen will confirm availability, delivery, and the final total with you.</p>
       </form>
     </div>
   </dialog>
