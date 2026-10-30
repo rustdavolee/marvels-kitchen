@@ -92,13 +92,13 @@ function createMenuCard(item) {
   const order = document.createElement("button");
   order.className = "order-meal";
   order.type = "button";
-  order.textContent = "Add to Order";
-  order.setAttribute("aria-label", `Add ${item.name} to your order`);
+  order.textContent = "Add to Cart";
+  order.setAttribute("aria-label", `Add ${item.name} to cart`);
   order.addEventListener("click", () => {
     const current = cart.get(item.name);
     cart.set(item.name, { item, quantity: (current?.quantity ?? 0) + 1 });
     renderCart();
-    document.getElementById("cart-status").textContent = `${item.name} added to your order.`;
+    document.getElementById("cart-status").textContent = `${item.name} added to your cart.`;
   });
   footer.append(price, order);
   content.append(title, description, footer);
@@ -198,8 +198,6 @@ function renderCart() {
   const fulfilment = document.getElementById("fulfilment").value;
   const hasSoup = [...cart.values()].some(({ item }) => item.category === "Soups and Swallows" && item.name !== "Pounded Yam");
   const checkoutForm = document.getElementById("checkout-form");
-  const menuCartSummary = document.getElementById("menu-cart-summary");
-  const menuCartTotal = document.getElementById("menu-cart-total");
   const rows = [...cart.values()].map(({ item, quantity }) => {
     const row = document.createElement("div");
     row.className = "cart-item";
@@ -251,13 +249,7 @@ function renderCart() {
     itemsContainer.append(empty);
   }
   countBadge.textContent = String(count);
-  document.getElementById("cart-launch").setAttribute("aria-label", `Open your order basket, ${count} ${count === 1 ? "item" : "items"}`);
-  menuCartSummary.textContent = count === 0
-    ? "Your basket is empty"
-    : `${count} ${count === 1 ? "item" : "items"} in your basket`;
-  menuCartTotal.textContent = count === 0
-    ? "Add a dish to start your order"
-    : `Subtotal: ${formatNaira(total)}`;
+  document.getElementById("cart-launch").setAttribute("aria-label", `Open shopping cart, ${count} ${count === 1 ? "item" : "items"}`);
   document.getElementById("cart-subtotal").textContent = formatNaira(total);
   document.getElementById("cart-delivery").textContent = fulfilment === "Pickup"
     ? "Not applicable for pickup"
@@ -291,7 +283,6 @@ function changeCartQuantity(name, change) {
 function setupCart() {
   const dialog = document.getElementById("cart-dialog");
   const launch = document.getElementById("cart-launch");
-  const menuLaunch = document.getElementById("menu-cart-open");
   const close = document.getElementById("cart-close");
   const fulfilment = document.getElementById("fulfilment");
   const address = document.getElementById("delivery-address");
@@ -301,7 +292,6 @@ function setupCart() {
 
   const openCart = () => dialog.showModal();
   launch.addEventListener("click", openCart);
-  menuLaunch.addEventListener("click", openCart);
   close.addEventListener("click", () => dialog.close());
   document.getElementById("checkout-continue").addEventListener("click", () => dialog.close());
   document.getElementById("cart-clear").addEventListener("click", () => {

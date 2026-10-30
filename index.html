@@ -7,16 +7,15 @@
   <meta name="description" content="Marvel’s Kitchen — cooked with love, inspired by tradition. Discover delicious meals and order directly on WhatsApp.">
   <title>Marvel’s Kitchen | Cooked with Love, Inspired by Tradition</title>
   <link rel="preconnect" href="https://images.unsplash.com">
-  <link rel="stylesheet" href="style.css?v=20261029-checkout-v2">
-  <script src="script.js?v=20261029-checkout-v2" defer></script>
+  <link rel="stylesheet" href="style.css?v=20261030-nav-cart">
+  <script src="script.js?v=20261030-nav-cart" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="brand" href="#home" aria-label="Marvel’s Kitchen home">
-        <img src="assets/marvels-kitchen-logo.png" alt="Marvel’s Kitchen logo" width="72" height="72">
-        <span class="brand-name">Marvel’s Kitchen</span>
+        <img src="assets/marvels-kitchen-logo.png" alt="Marvel’s Kitchen logo" width="75" height="75">
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Open navigation menu">
         <span></span><span></span><span></span>
@@ -63,7 +62,6 @@
           <div class="photo-caption"><span class="caption-spark" aria-hidden="true">✳</span><span>Good food is a love language.</span></div>
         </div>
         <div class="about-copy">
-          <p class="eyebrow">A little about us</p>
           <h2 class="section-title" id="about-title">Our Story<span class="title-dot">.</span></h2>
           <p>At Marvel’s Kitchen, food is more than a meal — it is an expression of care, culture, and connection. Inspired by tradition and prepared with love, we aim to make every meal a memorable experience.</p>
           <a class="button button-green" href="#contact">Come say hello <span aria-hidden="true">→</span></a>
@@ -87,13 +85,6 @@
           <button class="filter-button" type="button" data-filter="Drinks" aria-pressed="false">Drinks</button>
         </div>
         <p class="soup-inclusion"><span aria-hidden="true">✳</span><span><strong>All soups come with one complimentary swallow of your choice.</strong> Please tell us your preferred swallow in the order notes at checkout.</span></p>
-        <div class="menu-order-bar" aria-live="polite">
-          <div class="menu-order-copy">
-            <span class="menu-order-icon" aria-hidden="true">▣</span>
-            <span><strong id="menu-cart-summary">Your basket is empty</strong><small id="menu-cart-total">Add a dish to start your order</small></span>
-          </div>
-          <button class="button button-green menu-cart-open" id="menu-cart-open" type="button" aria-controls="cart-dialog">View order <span aria-hidden="true">→</span></button>
-        </div>
         <div class="menu-grid" id="menu-grid" aria-live="polite"></div>
         <p class="cart-status" id="cart-status" role="status" aria-live="polite"></p>
         <p class="sample-note"><span aria-hidden="true">ⓘ</span> Menu items and prices shown are sample placeholders, not confirmed offerings or prices. Please replace them with current business details before launch.</p>
@@ -203,8 +194,10 @@
     </div>
     <div class="container footer-bottom"><span>© <span id="current-year"></span> Marvel’s Kitchen. All rights reserved.</span><span>Good food, made with love in Nigeria.</span></div>
   </footer>
-  <button class="cart-launch" id="cart-launch" type="button" aria-haspopup="dialog" aria-controls="cart-dialog" aria-label="Open your order basket">
-    <span aria-hidden="true">▣</span> Your order <span class="cart-count" id="cart-count">0</span>
+  <button class="cart-launch" id="cart-launch" type="button" aria-haspopup="dialog" aria-controls="cart-dialog" aria-label="Open shopping cart, 0 items" title="Shopping cart">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.5a2 2 0 0 0 1.9-1.4L21 8H6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="10" cy="20" r="1.25" fill="currentColor"></circle><circle cx="18" cy="20" r="1.25" fill="currentColor"></circle></svg>
+    <span class="cart-count" id="cart-count" aria-live="polite">0</span>
+    <span class="visually-hidden">Open shopping cart</span>
   </button>
   <dialog class="cart-dialog" id="cart-dialog" aria-labelledby="cart-title">
     <div class="cart-header">
