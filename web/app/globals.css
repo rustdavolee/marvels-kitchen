@@ -44,6 +44,9 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .button-green { background: var(--forest); color: #fff; }
 .button-green:hover { background: var(--deep); }
 .soft-shadow { box-shadow: 0 16px 44px rgba(10,36,26,.1); }
+.site-header nav a:not(.button) { color: #fff; }
+.site-header nav a:not(.button):hover { color: #e4c765; }
+.site-header nav a.button-gold { color: var(--deep); }
 
 @media (max-width: 640px) {
   .container { width: min(100% - 32px, 1180px); }

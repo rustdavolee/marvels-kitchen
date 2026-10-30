@@ -323,39 +323,38 @@ export function RestaurantSite() {
       >
         Skip to content
       </a>
-      <header className="sticky top-0 z-40 border-b border-forest/10 bg-cream/95 backdrop-blur-md">
-        <div className="container flex min-h-[82px] items-center justify-between gap-5">
+      <header className="site-header sticky top-0 z-40 border-b border-forest/10 bg-cream/95 backdrop-blur-md">
+        <div className="container flex min-h-24 items-center justify-between gap-4">
           <a
             href="#home"
-            className="flex shrink-0 items-center gap-3"
+            className="flex size-[75px] shrink-0 items-center justify-center"
             aria-label={`${business.name} home`}
           >
             <Image
               src="/assets/marvels-kitchen-logo.png"
               alt={`${business.name} logo`}
-              width={92}
-              height={92}
+              width={75}
+              height={75}
               priority
-              className="h-[68px] w-[68px] object-contain sm:h-[78px] sm:w-[78px]"
+              className="size-[75px] object-contain"
             />
-            <span className="font-display text-lg font-bold text-forest sm:text-xl">
-              {business.name}
-            </span>
           </a>
           <button
             type="button"
-            className="grid size-11 shrink-0 place-content-center gap-1.5 rounded border border-forest/20 bg-transparent min-[861px]:hidden"
+            className="grid size-11 shrink-0 place-content-center gap-1.5 rounded-[5px] border border-forest bg-forest min-[861px]:hidden"
             aria-label={mobileMenuOpen ? "Close navigation" : "Open navigation"}
             aria-expanded={mobileMenuOpen}
+            aria-controls="primary-navigation"
             onClick={() => setMobileMenuOpen((open) => !open)}
           >
-            <span className="h-0.5 w-5 bg-forest" />
-            <span className="h-0.5 w-5 bg-forest" />
-            <span className="h-0.5 w-5 bg-forest" />
+            <span className="h-0.5 w-5 bg-white" />
+            <span className="h-0.5 w-5 bg-white" />
+            <span className="h-0.5 w-5 bg-white" />
           </button>
           <nav
+            id="primary-navigation"
             aria-label="Main navigation"
-            className={`${mobileMenuOpen ? "visible translate-y-0 opacity-100" : "invisible -translate-y-2 opacity-0 min-[861px]:visible min-[861px]:translate-y-0 min-[861px]:opacity-100"} fixed inset-x-0 top-[82px] z-40 flex max-h-[calc(100dvh-82px)] flex-col gap-1 overflow-y-auto bg-cream px-6 pb-8 pt-4 transition min-[861px]:static min-[861px]:max-h-none min-[861px]:flex-row min-[861px]:items-center min-[861px]:gap-5 min-[861px]:overflow-visible min-[861px]:bg-transparent min-[861px]:p-0 min-[861px]:shadow-none`}
+            className={`${mobileMenuOpen ? "visible translate-y-0 opacity-100" : "invisible -translate-y-2 opacity-0 min-[861px]:visible min-[861px]:translate-y-0 min-[861px]:opacity-100"} fixed inset-x-0 top-24 z-40 flex max-h-[calc(100dvh-6rem)] flex-col gap-1 overflow-y-auto rounded-b-[5px] bg-deep px-4 pb-6 pt-3 shadow-xl transition min-[861px]:static min-[861px]:max-h-none min-[861px]:flex-row min-[861px]:items-center min-[861px]:gap-1 min-[861px]:overflow-visible min-[861px]:rounded-[5px] min-[861px]:bg-forest min-[861px]:px-2 min-[861px]:py-2 min-[861px]:shadow-md`}
           >
             {[
               ["Home", "#home"],
@@ -368,7 +367,7 @@ export function RestaurantSite() {
                 key={href}
                 href={href}
                 onClick={closeMobileNavigation}
-                className="border-b border-forest/10 px-2 py-3 text-sm font-semibold text-ink transition hover:text-gold min-[861px]:border-0 min-[861px]:px-0 min-[861px]:py-2"
+                className="rounded-[5px] border-b border-white/10 px-3 py-3 text-sm font-semibold text-white transition hover:bg-white/10 hover:text-[#e4c765] min-[861px]:border-0 min-[861px]:px-3 min-[861px]:py-2"
               >
                 {label}
               </a>
@@ -376,7 +375,7 @@ export function RestaurantSite() {
             <a
               href="#menu"
               onClick={closeMobileNavigation}
-              className="button button-green mt-3 min-[861px]:mt-0"
+              className="button button-gold mt-3 rounded-[5px] min-[861px]:ml-1 min-[861px]:mt-0"
             >
               Order on Site <span aria-hidden="true">↗</span>
             </a>
@@ -387,7 +386,7 @@ export function RestaurantSite() {
       <main id="main">
         <section
           id="home"
-          className="relative isolate flex min-h-[620px] items-center overflow-hidden bg-deep text-white sm:min-h-[690px] lg:min-h-[min(760px,calc(100svh-82px))]"
+          className="relative isolate flex min-h-[620px] items-center overflow-hidden bg-deep text-white sm:min-h-[690px] lg:min-h-[min(760px,calc(100svh-96px))]"
         >
           <Image
             src={
@@ -462,7 +461,6 @@ export function RestaurantSite() {
               </div>
             </div>
             <div className="max-w-xl">
-              <p className="eyebrow">A little about us</p>
               <h2 className="section-title">Our Story<span className="text-gold">.</span></h2>
               <p className="body-copy mt-5">
                 At Marvel’s Kitchen, food is more than a meal — it is an
@@ -508,7 +506,7 @@ export function RestaurantSite() {
                   key={entry}
                   aria-pressed={category === entry}
                   onClick={() => setCategory(entry)}
-                  className={`min-h-10 shrink-0 border px-4 text-xs font-semibold transition sm:text-sm ${category === entry ? "border-forest bg-forest text-white" : "border-forest/20 bg-transparent text-forest hover:border-forest"}`}
+                  className={`min-h-11 shrink-0 rounded-[5px] border px-4 text-xs font-semibold transition focus-visible:outline-offset-2 sm:text-sm ${category === entry ? "border-forest bg-forest text-white shadow-sm" : "border-forest/20 bg-white text-forest hover:border-forest hover:bg-forest/5"}`}
                 >
                   {entry}
                 </button>
@@ -531,28 +529,6 @@ export function RestaurantSite() {
                 className="button button-green w-full shrink-0 sm:w-auto"
               >
                 View order <span aria-hidden="true">→</span>
-              </button>
-            </div>
-
-            <div className="mb-5 flex flex-wrap items-center justify-between gap-3 border border-forest/15 bg-white/70 px-4 py-3">
-              <div>
-                <strong className="block text-sm text-forest">
-                  {itemCount === 0
-                    ? "Your basket is empty"
-                    : `${itemCount} ${itemCount === 1 ? "item" : "items"} in your basket`}
-                </strong>
-                <span className="text-xs text-muted">
-                  {itemCount === 0
-                    ? "Add a dish to start your order"
-                    : `Subtotal: ${formatNaira(subtotal)}`}
-                </span>
-              </div>
-              <button
-                type="button"
-                onClick={() => setCartOpen(true)}
-                className="button button-green min-h-10 px-4 py-2 text-xs"
-              >
-                Open basket ({itemCount})
               </button>
             </div>
 
@@ -617,11 +593,12 @@ export function RestaurantSite() {
                         <strong className="text-forest">{formatNaira(item.amount_ngn)}</strong>
                         <button
                           type="button"
-                          className="button button-green min-h-10 px-3 py-2 text-xs"
+                          className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-[5px] border border-forest bg-forest px-2.5 text-xs font-bold text-white shadow-sm transition hover:border-gold hover:bg-gold hover:text-deep focus-visible:outline-offset-2 sm:px-3 sm:text-sm"
                           onClick={() => addToCart(item)}
                           aria-label={`Add ${item.name} to your order`}
                         >
-                          Add to Order
+                          <span className="grid size-6 shrink-0 place-items-center rounded-[3px] bg-gold text-base leading-none text-deep transition group-hover:bg-white" aria-hidden="true">+</span>
+                          Add to Cart
                         </button>
                       </div>
                     </div>
@@ -798,12 +775,20 @@ export function RestaurantSite() {
 
       <button
         type="button"
-        aria-label={`Open order basket, ${itemCount} items`}
+        aria-label={`Open shopping cart, ${itemCount} ${itemCount === 1 ? "item" : "items"}`}
+        title={`Shopping cart (${itemCount})`}
         onClick={() => setCartOpen(true)}
-        className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-4 z-40 inline-flex min-h-12 items-center gap-3 bg-forest px-4 text-sm font-bold text-white shadow-xl transition hover:bg-deep sm:bottom-6 sm:right-6"
+        className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-4 z-40 grid size-14 place-items-center rounded-full border-2 border-gold bg-forest text-white shadow-xl transition hover:scale-105 hover:bg-deep focus-visible:outline-offset-4 sm:bottom-6 sm:right-6 sm:size-16"
       >
-        <span aria-hidden="true">▣</span> Your order
-        <span className="grid min-w-6 place-items-center rounded-full bg-gold px-1.5 py-0.5 text-xs text-deep">{itemCount}</span>
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="size-6 sm:size-7">
+          <path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.5a2 2 0 0 0 1.9-1.4L21 8H6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          <circle cx="10" cy="20" r="1.25" fill="currentColor" />
+          <circle cx="18" cy="20" r="1.25" fill="currentColor" />
+        </svg>
+        <span aria-hidden="true" className="absolute -right-1 -top-1 grid min-h-6 min-w-6 place-items-center rounded-full border-2 border-cream bg-gold px-1 text-xs font-bold leading-none text-deep">
+          {itemCount > 99 ? "99+" : itemCount}
+        </span>
+        <span className="sr-only">Open shopping cart</span>
       </button>
 
       {cartOpen && (
